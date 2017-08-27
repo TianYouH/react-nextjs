@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd-mobile": "^1.6.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-scripts": "1.0.11"
@@ -14,6 +15,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-mixin": "^3.1.0"
+    "babel-plugin-import": "^1.4.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "postcss-pxtorem": "^3.3.1",
+    "react-mixin": "^3.1.0",
+    "svg-sprite-loader": "^0.3.1"
   }
 }
