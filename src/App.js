@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import ComponentHeader from './components/header'
 import ComponentFooter from './components/footer'
 import ComponentBody from './components/body'
+import ComponentState from './components/state'
+import ComponentProps from './components/props'
 
 class App extends Component {
 
@@ -19,8 +21,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <ComponentHeader/> 
+        <ComponentHeader/>
         {combody}
+        <ComponentState/>
+        <ComponentProps name='靓靓靓' age={18}/>
         <ComponentFooter/>
       </div>
     );

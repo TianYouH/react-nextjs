@@ -1,4 +1,7 @@
 import React from 'react'
+import ReactMixin from 'react-mixin'
+
+import MixinLog from './mixins'
 
 export default class ComponentBody extends React.Component{
 
@@ -7,6 +10,7 @@ export default class ComponentBody extends React.Component{
     }
     componentDidMount() {
         console.log('body页面加载结束')
+        MixinLog.log()
     }
 
     render() {
@@ -21,7 +25,7 @@ export default class ComponentBody extends React.Component{
         return (
             <main>
                 <h1>我是主体</h1>
-                <p>{userName==''? '用户未登陆':'用户名:'+userName}</p>
+                <p>{userName===''? '用户未登陆':'用户名:'+userName}</p>
                 <p><input type="button" value='按钮' disabled={boolButton}/></p>
                 {/* 注释 */}
                 <p>{html}</p>
@@ -31,3 +35,5 @@ export default class ComponentBody extends React.Component{
         )
     }
 }
+
+ReactMixin(ComponentBody.prototype, MixinLog);
