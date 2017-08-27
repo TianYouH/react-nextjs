@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// import CcmyCard from './components/ccmy'
+
 import ComponentHeader from './components/header'
 import ComponentFooter from './components/footer'
 import ComponentBody from './components/body'
@@ -21,6 +23,8 @@ class App extends Component {
 
     return (
       <div className="App">
+
+        {/* <CcmyCard/> */}
         <ComponentHeader/>
         {combody}
         <ComponentState/>

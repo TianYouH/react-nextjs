@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+// import ReactDOM from 'react-dom'
 
 import PropTypes from 'prop-types'; //React.PropTypes已经从React v15.5移植到了一个不同的包中。使用prop-types库
 
