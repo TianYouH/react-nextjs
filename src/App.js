@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-// import CcmyCard from './components/ccmy'
+import CcmyCard from './components/ccmy'
 
-import ComponentHeader from './components/header'
-import ComponentFooter from './components/footer'
-import ComponentBody from './components/body'
-import ComponentState from './components/state'
-import ComponentProps from './components/props'
+// import ComponentHeader from './components/header'
+// import ComponentFooter from './components/footer'
+// import ComponentBody from './components/body'
+// import ComponentState from './components/state'
+// import ComponentProps from './components/props'
 
 class App extends Component {
 
@@ -19,17 +19,17 @@ class App extends Component {
 
   render() {
 
-    let combody = <ComponentBody/>
+    // let combody = <ComponentBody/>
 
     return (
       <div className="App">
 
-        {/* <CcmyCard/> */}
-        <ComponentHeader/>
+        <CcmyCard/>
+        {/* <ComponentHeader/>
         {combody}
         <ComponentState/>
         <ComponentProps name='靓靓靓' age={18}/>
-        <ComponentFooter/>
+        <ComponentFooter/> */}
       </div>
     );
   }
