@@ -6,25 +6,25 @@ import {
 } from 'react-router-dom'
 /* eslint-disable */
 
-const Home = () => {
+const Home = () => (
     <div>
         <h2>Home</h2>
     </div>
-}
+)
 
-const Huang = () => {
+const Huang = () => (
     <div>
         <h2>Huang</h2>
     </div>
-}
+)
 
-const Jin = () => {
+const Jin = () => (
     <div>
         <h2>jin</h2>
     </div>
-}
+)
 
-export default class Root extends Component {
+ class Root extends Component {
     
       componentWillMount() {
         console.log("app页面将要加载")
@@ -35,7 +35,7 @@ export default class Root extends Component {
     
       render() {
         return (
-            <Router className="Root">
+            <Router>
                 <div>
                     <ul>
                         <li><Link to='/'>Home</Link></li>
@@ -46,13 +46,12 @@ export default class Root extends Component {
                     <hr/>
             
                     <Route exact path='/' component={Home}></Route>
-                    <Route exact path='/huang' component={Huang}></Route>
-                    <Route exact path='/jin' component={Jin}></Route>
+                    <Route  path='/huang' component={Huang}></Route>
+                    <Route  path='/jin' component={Jin}></Route>
                 </div>
             </Router>
         )
       }
 }
     
-
-
+export default Root
