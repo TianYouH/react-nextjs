@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactMixin from 'react-mixin'
-import '../css/style.css'
-import MixinLog from './mixins'
+import React from 'react';
+import ReactMixin from 'react-mixin';
+import '../css/style.css';
+import MixinLog from './mixins';
 
-const style1 = require('../css/style1.css')
+const style1 = require('../css/style1.css');
 
 export default class ComponentBody extends React.Component{
 
