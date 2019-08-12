@@ -1,11 +1,11 @@
-import React from 'react'
+import React,{ Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
 
-const App = React.createClass({
+class App extends  Component{
   render() {
     return (
       <Router>
@@ -18,10 +18,10 @@ const App = React.createClass({
       </Router>
     )
   }
-})
+};
 
-const Home = React.createClass({
-  render() {
+class Home extends Component{
+  render() { 
     return (
       <div>
         <h1>App</h1>
@@ -33,15 +33,15 @@ const Home = React.createClass({
       </div>
     )
   }
-})
+}
 
-const About = React.createClass({
+class About extends Component{
   render() {
     return <h3>About</h3>
   }
-})
+}
 
-const Inbox = React.createClass({
+class Inbox extends Component{
   render() {
     return (
       <div>
@@ -50,12 +50,12 @@ const Inbox = React.createClass({
       </div>
     )
   }
-})
+}
 
-const Message = React.createClass({
+class Message extends Component{
   render() {
     return <h3>Message {this.props.params.id}</h3>
   }
-})
+}
 
 export default App;
