@@ -9,12 +9,7 @@ class App extends  Component{
   render() {
     return (
       <Router>
-        <Route path="/" component={Home}>
-          <Route path="about" component={About} />
-          <Route path="inbox" component={Inbox}>
-            <Route path="messages/:id" component={Message} />
-          </Route>
-        </Route>
+        <Route path="/" component={Home} />
       </Router>
     )
   }
@@ -24,12 +19,13 @@ class Home extends Component{
   render() { 
     return (
       <div>
-        <h1>App</h1>
+        <h1>Home</h1>
         <ul>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/inbox">Inbox</Link></li>
-        </ul>
-        {this.props.children}
+        </ul> 
+        <Route path="/about" component={About} />
+        <Route path="/inbox" component={Inbox} />
       </div>
     )
   }
@@ -46,7 +42,8 @@ class Inbox extends Component{
     return (
       <div>
         <h2>Inbox</h2>
-        {this.props.children || "Welcome to your Inbox"}
+        "Welcome to your Inbox"
+        <Route path="/inbox/messages/:id" component={Message} />
       </div>
     )
   }
@@ -54,7 +51,7 @@ class Inbox extends Component{
 
 class Message extends Component{
   render() {
-    return <h3>Message {this.props.params.id}</h3>
+    return <h3>Message{this.props.match.params.id}</h3>
   }
 }
 
