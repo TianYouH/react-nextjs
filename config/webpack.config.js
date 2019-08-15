@@ -27,6 +27,12 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const postcssNormalize = require('postcss-normalize');
+const postcssAspectRatioMini = require('postcss-aspect-ratio-mini')
+const postcssPxToViewport = require('postcss-px-to-viewport-opt')
+const postcssWriteSvg = require('postcss-write-svg')
+const postcssPresetEnv = require('postcss-preset-env')
+const postcssViewportUnits = require('postcss-viewport-units')
+const cssnano = require('cssnano')
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -101,6 +107,28 @@ module.exports = function(webpackEnv) {
             // so that it honors browserslist config in package.json
             // which in turn let's users customize the target behavior as per their needs.
             postcssNormalize(),
+            postcssAspectRatioMini({}),
+            postcssPxToViewport({
+              viewportWidth: 750, // (Number) The width of the viewport.
+              viewportHeight: 1334, // (Number) The height of the viewport.
+              unitPrecision: 3, // (Number) The decimal numbers to allow the REM units to grow to.
+              viewportUnit: 'vw', // (String) Expected units.
+              selectorBlackList: ['.ignore', '.hairlines', '.antd'], // (Array) The selectors to ignore and leave as px.
+              minPixelValue: 1, // (Number) Set the minimum pixel value to replace.
+              mediaQuery: false, // (Boolean) Allow px to be converted in media queries.
+              exclude: /(\/|\\)(node_modules)(\/|\\)/
+            }),
+            postcssWriteSvg({
+              utf8: false
+            }),
+            postcssPresetEnv({}),
+            postcssViewportUnits({}),
+            cssnano({
+              'cssnano-preset-advanced': {
+                zindex: false,
+                autoprefixer: false
+              }
+            })
           ],
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
