@@ -133,16 +133,16 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd-mobile",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
     ]
-  },
-  "plugins": [
-    [
-      "import",
-      {
-        "libraryName": "antd-mobile",
-        "libraryDirectory": "es",
-        "style": "css"
-      }
-    ]
- ]
+  }
 }
