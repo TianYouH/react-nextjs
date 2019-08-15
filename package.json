@@ -61,6 +61,10 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0"
   },
+  "devDependencies": {
+    "babel-plugin-import": "^1.12.0",
+    "eslint-plugin-html": "^6.0.0"
+  },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
@@ -131,7 +135,14 @@
       "react-app"
     ]
   },
-  "devDependencies": {
-    "eslint-plugin-html": "^6.0.0"
-  }
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ]
+ ]
 }
