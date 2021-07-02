@@ -1,0 +1,1 @@
+export default () => <span>你好世界</span>
