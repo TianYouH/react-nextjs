@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Button } from 'antd';
 
@@ -13,7 +14,7 @@ function ActiveLink() {
     router.push('/router/router-push')
   }
 
-  // Router 动态传参 测试
+  // Router 动态传参 路由映射 测试
   const handle2Click = (e) => {
     e.preventDefault()
     // router.push('/router/dynamic-parameters?id=456')
@@ -22,7 +23,9 @@ function ActiveLink() {
       query: {
         id: '12345'
       }
-    })
+    }
+    // , 'nihao' // 动态映射测试
+    )
   }
 
   return (
@@ -33,6 +36,11 @@ function ActiveLink() {
       <Button onClick={handle2Click} style={style}>
         动态传参 测试
       </Button>
+      <Link href="/router/dynamic-parameters?id=666" as="/huang/666" >
+        <Button style={style}>
+          动态映射 测试
+        </Button>
+      </Link>
     </div>
   )
 }
