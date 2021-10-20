@@ -41,6 +41,9 @@ function ActiveLink() {
           动态映射 测试
         </Button>
       </Link>
+      <Link href="#aaa" >
+        <a>hash 钩子 测试</a>
+      </Link>
     </div>
   )
 }
