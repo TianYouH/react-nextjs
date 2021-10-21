@@ -1,3 +1,7 @@
-import { Button } from 'antd';
+import { Button } from "antd";
 
-export default () => <Button>router-push</Button>
+export default () => (
+  <div>
+    <Button>router-push</Button>
+  </div>
+);

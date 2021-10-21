@@ -1,12 +1,12 @@
 import { withRouter } from 'next/router'
 
-const DynamicParameters =  ({ router }) => {
+const DynamicParameters =  ({ id }) => {
   return (
   <div>
     动态参数 测试页面
     <p>
       {/* 参数：{ JSON.stringify(router.query) } */}
-      参数：{ router.query.id }
+      参数：{ id }
     </p>
   </div>
 )}
