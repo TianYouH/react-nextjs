@@ -1,18 +1,21 @@
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { Button } from 'antd'
+import MyContext from '../lib/my-context'
 import Layout from "../components/Layout.jsx";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  const [context, setContext] = useState(0);
 
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {
-      console.log(
-        `App is changing to ${url} ${
-          shallow ? "with" : "without"
-        } shallow routing`
-      );
+      // console.log(
+      //   `App is changing to ${url} ${
+      //     shallow ? "with" : "without"
+      //   } shallow routing`
+      // );
     };
 
     router.events.on("routeChangeStart", handleRouteChange);
@@ -34,7 +37,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Layout>
-      <Component {...pageProps} />
+      <hr></hr>
+      <br></br>
+      <Button onClick={() => setContext((o) => o + 1)} >更新 context 测试</Button>
+      <MyContext.Provider value={context} >
+        <Component {...pageProps} />
+      </MyContext.Provider>
     </Layout>
   );
 }

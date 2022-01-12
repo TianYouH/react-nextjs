@@ -5,7 +5,10 @@ function Layout({ children }) {
   return (
     <header>
       <Link href="/router">
-        <Button>前往 router 测试</Button>
+        <Button>前往 Router 测试</Button>
+      </Link>
+      <Link href="/hook">
+        <Button>前往 Hook 测试</Button>
       </Link>
       { children }
     </header>
