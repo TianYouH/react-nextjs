@@ -39,7 +39,10 @@ function MyApp({ Component, pageProps }) {
     <Layout>
       <hr></hr>
       <br></br>
-      <Button onClick={() => setContext((o) => o + 1)} >更新 context 测试</Button>
+      _app 层
+      <Button onClick={() => setContext((o) => o + 1)} >更新 useContext 测试</Button>
+      <hr></hr>
+      <br></br>
       <MyContext.Provider value={context} >
         <Component {...pageProps} />
       </MyContext.Provider>

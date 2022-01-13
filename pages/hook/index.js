@@ -9,11 +9,14 @@ export default () => (
     <Link href="/hook/reducer" >
       <Button>Reducer Hook</Button>
     </Link>
-    <Link href="/hook/effect" >
-      <Button>Effect Hook</Button>
+    <Link href="/hook/effect-ref" >
+      <Button>Effect Hook 及 Ref Hook </Button>
     </Link>
     <Link href="/hook/context" >
       <Button>Context Hook</Button>
+    </Link>
+    <Link href="/hook/memo" >
+      <Button>Memo Hook</Button>
     </Link>
   </div>
 );
