@@ -7,6 +7,8 @@ import Layout from "../components/Layout.jsx";
 import { Provider } from "react-redux";
 import store from "../store/store";
 
+import TestHocComp from '../lib/test-hoc'
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const [context, setContext] = useState(0);
@@ -56,4 +58,5 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default TestHocComp(MyApp);
+// export default MyApp;
