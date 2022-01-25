@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import ReduxThunk from "redux-thunk"; // redux 中间件：使 action 支持异步
+import { composeWithDevTools } from 'redux-devtools-extension' 
 
 const initialState = {
   count: 0,
@@ -52,7 +53,7 @@ const store = createStore(
     counter: initialState,
     user: userInitialState,
   },
-  applyMiddleware(ReduxThunk) // 使用中间件
+  composeWithDevTools(applyMiddleware(ReduxThunk)) // 使用中间件
 );
 
 // action creatore

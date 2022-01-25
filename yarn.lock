@@ -2783,6 +2783,11 @@ redis-parser@^3.0.0:
   dependencies:
     redis-errors "^1.0.0"
 
+redux-devtools-extension@^2.13.9:
+  version "2.13.9"
+  resolved "http://npm.ztosys.com/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz#6b764e8028b507adcb75a1cae790f71e6be08ae7"
+  integrity sha1-a3ZOgCi1B63LdaHK55D3Hmvgiuc=
+
 redux-thunk@^2.4.1:
   version "2.4.1"
   resolved "http://npm.ztosys.com/redux-thunk/-/redux-thunk-2.4.1.tgz#0dd8042cf47868f4b29699941de03c9301a75714"
