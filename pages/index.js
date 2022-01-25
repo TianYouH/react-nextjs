@@ -2,11 +2,10 @@ import Link from "next/link";
 import { Router } from "next/router";
 import { Button } from "antd";
 // import moment from 'moment';
-
-import store from '../store/store'
+import { connect } from 'react-redux';
 
 const color = "blue"
-function App({name, time}) {
+function App({name, time, counter, username, rename, add}) {
   return (
     <>
       <div>
@@ -14,6 +13,10 @@ function App({name, time}) {
         <p>App p 11111</p>
         <span className="sp glo" >App span 22222</span>
         <p>我叫{name},在{time}是大佬</p>
+        <p>redux-counter：{counter}</p>
+        <p>redux-username：{username}</p>
+        <input value={username} onChange={e=> rename(e.target.value)} ></input>
+        <Button onClick={() => add(counter)} >redux-add</Button>
       </div>
       {/* 正常局部测试 */}
       <style jsx>{`
@@ -51,4 +54,17 @@ App.getInitialProps = async (ctx) => {
   return promise;
 };
 
-export default App;
+export default connect(
+function mapStateToProps(state) {
+  return {
+    counter: state.counter.count,
+    username: state.user.username,
+  }
+},
+function mapDispatchToProps(dispatch) {
+  return {
+    add: num => dispatch({type: "ADD", number: num}),
+    rename: name => dispatch({type: "UPDATE_USERNAME", name})
+  }
+}
+)(App);

@@ -1,9 +1,11 @@
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { Button } from 'antd'
-import MyContext from '../lib/my-context'
+import { Button } from "antd";
+import MyContext from "../lib/my-context";
 import Layout from "../components/Layout.jsx";
+import { Provider } from "react-redux";
+import store from "../store/store";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -40,12 +42,16 @@ function MyApp({ Component, pageProps }) {
       <hr></hr>
       <br></br>
       _app 层
-      <Button onClick={() => setContext((o) => o + 1)} >更新 useContext 测试</Button>
+      <Button onClick={() => setContext((o) => o + 1)}>
+        更新 useContext 测试
+      </Button>
       <hr></hr>
       <br></br>
-      <MyContext.Provider value={context} >
-        <Component {...pageProps} />
-      </MyContext.Provider>
+      <Provider store={store}>
+        <MyContext.Provider value={context}>
+          <Component {...pageProps} />
+        </MyContext.Provider>
+      </Provider>
     </Layout>
   );
 }
