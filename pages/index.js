@@ -3,6 +3,8 @@ import { Router } from "next/router";
 import { Button } from "antd";
 // import moment from 'moment';
 
+import store from '../store/store'
+
 const color = "blue"
 function App({name, time}) {
   return (
