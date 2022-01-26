@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import ReduxThunk from "redux-thunk"; // redux 中间件：使 action 支持异步
-import { composeWithDevTools } from 'redux-devtools-extension' 
+import { composeWithDevTools } from "redux-devtools-extension";
 
 const initialState = {
   count: 0,
@@ -25,8 +25,6 @@ function counterReducer(state = initialState, action) {
   }
 }
 
-
-
 const UPDATE_USERNAME = "UPDATE_USERNAME";
 
 function userReducer(state = initialState, action) {
@@ -47,40 +45,58 @@ const allReducers = combineReducers({
 });
 
 // const store = createStore(counterReducer, initialState);
-const store = createStore(
-  allReducers,
-  {
-    counter: initialState,
-    user: userInitialState,
-  },
-  composeWithDevTools(applyMiddleware(ReduxThunk)) // 使用中间件
-);
+// const store = createStore(
+//   allReducers,
+//   {
+//     counter: initialState,
+//     user: userInitialState,
+//   },
+//   composeWithDevTools(applyMiddleware(ReduxThunk)) // 使用中间件
+// );
 
 // action creatore
-function add(num) {
+export function add(num) {
   return {
     type: ADD,
-    number: num
-  }
+    number: num,
+  };
 }
 
 function addAsync(num) {
   return (dispatch, getState) => {
     setTimeout(() => {
-      dispatch(add(num))
+      dispatch(add(num));
     }, 1000);
-  }
+  };
 }
 
-store.dispatch(add(3)) // 3
+// store.dispatch(add(3)); // 3
 
-store.subscribe(() => {
-  console.log('changed', store.getState());
-})
+// store.subscribe(() => {
+//   console.log("changed", store.getState());
+// });
 
-store.dispatch({ type: ADD }) // 4
+// store.dispatch({ type: ADD }); // 4
 
-store.dispatch(addAsync(7)) // 11
+// store.dispatch(addAsync(7)); // 11
 
+// 单页应用
+// export default store;
 
-export default store;
+// 适配nextjs
+export default function initialzeStore(state) {
+  const store = createStore(
+    allReducers,
+    Object.assign(
+      {},
+      {
+        counter: initialState,
+        user: userInitialState,
+      },
+      state
+    ),
+    composeWithDevTools(applyMiddleware(ReduxThunk)) // 使用中间件
+  );
+
+  return store;
+}

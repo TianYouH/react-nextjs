@@ -5,11 +5,10 @@ import { Button } from "antd";
 import MyContext from "../lib/my-context";
 import Layout from "../components/Layout.jsx";
 import { Provider } from "react-redux";
-import store from "../store/store";
 
-import TestHocComp from '../lib/test-hoc'
+import TestHocComp from '../lib/with-redux'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, reduxStore }) {
   const router = useRouter();
   const [context, setContext] = useState(0);
 
@@ -49,13 +48,24 @@ function MyApp({ Component, pageProps }) {
       </Button>
       <hr></hr>
       <br></br>
-      <Provider store={store}>
+      <Provider store={reduxStore}>
         <MyContext.Provider value={context}>
           <Component {...pageProps} />
         </MyContext.Provider>
       </Provider>
     </Layout>
   );
+}
+
+MyApp.getInitialProps = async (ctx) => {
+  const { Component } = ctx;
+  let pageProps = {}
+  if (Component.getInitialProps) {
+    pageProps = await Component.getInitialProps(ctx)
+  }
+  return {
+    pageProps
+  }
 }
 
 export default TestHocComp(MyApp);

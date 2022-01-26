@@ -4,6 +4,8 @@ import { Button } from "antd";
 // import moment from 'moment';
 import { connect } from 'react-redux';
 
+import { add } from '../store/store'
+
 const color = "blue"
 function App({name, time, counter, username, rename, add}) {
   return (
@@ -41,17 +43,21 @@ function App({name, time, counter, username, rename, add}) {
 }
 
 
-App.getInitialProps = async (ctx) => {
-  const moment = await import("moment");
-  const promise = new Promise(resolve => {
-    setTimeout(() => {
-      resolve({
-        name: "黄长生",
-        time: moment.default(Date.now() - (1000*60*60)).fromNow()
-      })
-    }, 1000);
-  })
-  return promise;
+// App.getInitialProps = async (ctx) => {
+//   const moment = await import("moment");
+//   const promise = new Promise(resolve => {
+//     setTimeout(() => {
+//       resolve({
+//         name: "黄长生",
+//         time: moment.default(Date.now() - (1000*60*60)).fromNow()
+//       })
+//     }, 1000);
+//   })
+//   return promise;
+// };
+App.getInitialProps = async ({ reduxStore }) => {
+  reduxStore.dispatch(add(3))
+  return {}
 };
 
 export default connect(
